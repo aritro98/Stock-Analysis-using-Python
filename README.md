@@ -20,7 +20,7 @@ This project focuses on analyzing and predicting stock prices using technical in
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aritro98/stock-prediction.git
+   git clone https://github.com/aritro98/Stock-Analysis-using-Python.git
    ```
 2. Navigate to the project folder:
    ```bash
