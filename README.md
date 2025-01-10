@@ -37,3 +37,8 @@ This project focuses on analyzing and predicting stock prices using technical in
    jupyter notebook Stock_Prediction.ipynb
    ```
 2. Run the notebook cells step-by-step to fetch data, calculate technical indicators, and visualize results.
+
+## Technical Indicators
+- Simple Moving Average (SMA): Smooths price data to identify trends.
+- Relative Strength Index (RSI): Identifies overbought or oversold conditions.
+- Moving Average Convergence Divergence (MACD): Shows the relationship between two moving averages.
