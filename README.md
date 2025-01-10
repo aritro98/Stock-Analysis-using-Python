@@ -22,3 +22,11 @@ This project focuses on analyzing and predicting stock prices using technical in
    ```bash
    git clone https://github.com/aritro98/stock-prediction.git
    ```
+2. Navigate to the project folder:
+   ```bash
+   cd Stock-Analysis-using-Python
+   ```
+3. Install the required Python libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
