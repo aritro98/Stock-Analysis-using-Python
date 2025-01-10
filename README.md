@@ -32,7 +32,8 @@ This project focuses on analyzing and predicting stock prices using technical in
    ```
 
 ## Usage
-1. Launch Jupyter Notebook:
+1. Open the Jupyter Notebook:
    ```bash
-   jupyter notebook
+   jupyter notebook Stock_Prediction.ipynb
    ```
+2. Run the notebook cells step-by-step to fetch data, calculate technical indicators, and visualize results.
