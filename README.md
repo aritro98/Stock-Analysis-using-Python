@@ -5,7 +5,7 @@ This project focuses on analyzing and predicting stock prices using technical in
 
 ## Features
 - Fetch historical stock data for 10 companies using the `yfinance` library.
-- Perform technical analysis with indicators like SMA, RSI, MACD, and Bollinger Bands using `pandas-ta`.
+- Perform technical analysis with indicators like SMA, RSI etc using `pandas-ta`.
 - Visualize stock prices and technical indicators using `matplotlib`.
 - Combine data into a single dataset and save it as a CSV file for future analysis.
 - Analyze stock trends to aid in investment decisions.
@@ -41,4 +41,7 @@ This project focuses on analyzing and predicting stock prices using technical in
 ## Technical Indicators
 - Simple Moving Average (SMA): Smooths price data to identify trends.
 - Relative Strength Index (RSI): Identifies overbought or oversold conditions.
-- Moving Average Convergence Divergence (MACD): Shows the relationship between two moving averages.
+
+## Additional Details
+- Historical data is fetched for a 5-year period, covering multiple market conditions.
+- The database includes company information and technical indicators to aid in comprehensive analysis.
