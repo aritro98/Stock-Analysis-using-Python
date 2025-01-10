@@ -15,10 +15,10 @@ This project focuses on analyzing and predicting stock prices using technical in
 
 ### Prerequisites
 - Python 3.7 or higher
-- Jupyter Notebook or Jupyter Lab
+- Jupyter Notebook
 
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/stock-prediction.git
+   git clone https://github.com/aritro98/stock-prediction.git
    ```
