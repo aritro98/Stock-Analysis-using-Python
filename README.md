@@ -10,3 +10,15 @@ This project focuses on analyzing and predicting stock prices using technical in
 - Combine data into a single dataset and save it as a CSV file for future analysis.
 - Analyze stock trends to aid in investment decisions.
 
+
+## Installation
+
+### Prerequisites
+- Python 3.7 or higher
+- Jupyter Notebook or Jupyter Lab
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/stock-prediction.git
+   ```
