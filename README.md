@@ -30,3 +30,9 @@ This project focuses on analyzing and predicting stock prices using technical in
    ```bash
    pip install -r requirements.txt
    ```
+
+## Usage
+1. Launch Jupyter Notebook:
+   ```bash
+   jupyter notebook
+   ```
