@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 220px;
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 12px;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        .sidebar a:hover {
+            background: #0056b3;
+        }
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .loading {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="order.html">Order</a>
+        <a href="market.html">Market</a>
+        <a href="settings.html">Settings</a>
+        <a href="stock_prediction.html">Stock Prediction</a>
+        <a href="Frontend.html">Home</a>
+    </div>
+
+    <div class="content">
+        <h1>Stock Data</h1>
+        <label for="companySelect">Select a company:</label>
+        <select id="companySelect" onchange="onCompanyChange()">
+            <option value="AAPL">Apple (AAPL)</option>
+            <option value="NFLX">Netflix (NFLX)</option>
+            <option value="TSLA">Tesla (TSLA)</option>
+            <option value="NVDA">NVIDIA (NVDA)</option>
+            <option value="JPM">JP Morgan (JPM)</option>
+        </select>
+
+        <div class="loading" id="loading">Loading...</div>
+        <table id="stocksTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price ($)</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
+                    <th>RSI</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <p id="error-message" class="error" style="display: none;"></p>
+    </div>
+
+    <script>
+        async function fetchStockData(ticker = "AAPL") {
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/stocks?ticker=${ticker}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('stocksTable').style.display = 'table';
+
+                const tableBody = document.querySelector('#stocksTable tbody');
+                tableBody.innerHTML = '';
+
+                data.dates.forEach((date, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${date}</td>
+                        <td>${data.prices[index].toFixed(2)}</td>
+                        <td>${data.rsi[index] ? data.rsi[index].toFixed(2) : 'N/A'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                document.getElementById('error-message').innerText = error.message;
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+
+        function onCompanyChange() {
+            const selectedCompany = document.getElementById('companySelect').value;
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('stocksTable').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            fetchStockData(selectedCompany);
+        }
+
+        // Initial fetch for default selection
+        fetchStockData();
+    </script>
+</body>
+</html>

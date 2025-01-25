@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Toggle Dark Mode
+        function toggleDarkMode() {
+            const body = document.body;
+            const isDarkMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateSidebarStyle(isDarkMode);
+        }
+
+        // Adjust Text Size
+        function adjustTextSize(size) {
+            document.documentElement.style.fontSize = size + 'px';
+            localStorage.setItem('textSize', size);
+        }
+
+        // Enable/Disable Notifications
+        function toggleNotifications() {
+            const isNotificationsEnabled = document.getElementById("notifications-toggle").checked;
+            localStorage.setItem('notificationsEnabled', isNotificationsEnabled);
+            alert(isNotificationsEnabled ? "Notifications Enabled!" : "Notifications Disabled!");
+        }
+
+        // Save Favorite Stocks
+        function saveFavorites() {
+            const selectedStocks = Array.from(document.querySelectorAll('input[name="stock"]:checked'))
+                .map(stock => stock.value);
+            localStorage.setItem('favoriteStocks', JSON.stringify(selectedStocks));
+            alert("Favorite Stocks Saved!");
+        }
+
+        // Reset All Settings
+        function resetSettings() {
+            localStorage.clear();
+            document.documentElement.style.fontSize = '16px';
+            document.body.classList.remove('dark-mode');
+            document.getElementById("notifications-toggle").checked = false;
+            document.querySelectorAll('input[name="stock"]').forEach(stock => (stock.checked = false));
+            updateSidebarStyle(false);
+            alert("Settings reset to default!");
+        }
+
+        // Apply Preferences on Page Load
+        window.onload = function () {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                updateSidebarStyle(true);
+            }
+
+            const textSize = localStorage.getItem('textSize');
+            if (textSize) document.documentElement.style.fontSize = textSize + 'px';
+
+            const isNotificationsEnabled = localStorage.getItem('notificationsEnabled') === 'true';
+            document.getElementById("notifications-toggle").checked = isNotificationsEnabled;
+
+            const favoriteStocks = JSON.parse(localStorage.getItem('favoriteStocks') || "[]");
+            document.querySelectorAll('input[name="stock"]').forEach(stock => {
+                stock.checked = favoriteStocks.includes(stock.value);
+            });
+        };
+
+        // Update Sidebar Style for Dark Mode
+        function updateSidebarStyle(isDarkMode) {
+            const sidebarLinks = document.querySelectorAll(".sidebar a");
+            sidebarLinks.forEach(link => {
+                link.style.color = isDarkMode ? "#ffffff" : "#000000"; // Adjust text color
+            });
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.style.backgroundColor = isDarkMode ? "#333" : "#ffffff"; // Adjust background color
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">Settings</div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <a href="index.html">Dashboard</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="order.html">Order</a>
+            <a href="market.html">Market</a>
+            <a href="stock_prediction.html">Stock Prediction</a>
+            <a href="Frontend.html">Home</a>
+        </div>
+        <div class="main-content">
+            <h2>Settings</h2>
+            <div class="settings-section">
+                <h3>Dark Mode</h3>
+                <label>
+                    <input type="checkbox" onclick="toggleDarkMode()"> Enable Dark Mode
+                </label>
+            </div>
+            <div class="settings-section">
+                <h3>Text Size</h3>
+                <button onclick="adjustTextSize(14)">Small</button>
+                <button onclick="adjustTextSize(16)">Default</button>
+                <button onclick="adjustTextSize(18)">Large</button>
+            </div>
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <label>
+                    <input type="checkbox" id="notifications-toggle" onclick="toggleNotifications()"> Enable Notifications
+                </label>
+            </div>
+            <div class="settings-section">
+                <h3>Favorite Stocks</h3>
+                <label><input type="checkbox" name="stock" value="AAPL"> Apple (AAPL)</label><br>
+                <label><input type="checkbox" name="stock" value="TSLA"> Tesla (TSLA)</label><br>
+                <label><input type="checkbox" name="stock" value="NFLX"> Netflix (NFLX)</label><br>
+                <label><input type="checkbox" name="stock" value="NVDA"> NVIDIA (NVDA)</label><br>
+                <label><input type="checkbox" name="stock" value="JPM"> JP Morgan (JPM)</label><br>
+                <button onclick="saveFavorites()">Save Favorites</button>
+            </div>
+            <div class="settings-section">
+                <h3>Reset</h3>
+                <button onclick="resetSettings()">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #1e88e5;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #e3f2fd;
+        }
+
+        .sidebar a.active {
+            background: #1e88e5;
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .settings-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode .navbar, .dark-mode .sidebar {
+            background-color: #333;
+        }
+
+        .dark-mode .sidebar a {
+            color: white;
+        }
+
+        .dark-mode .settings-section {
+            background: #222;
+            border-color: #555;
+        }
+    </style>
+</body>
+</html>

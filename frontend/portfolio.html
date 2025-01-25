@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Portfolio</title>
+                        <link rel="stylesheet" href="style.css">
+    <script>
+        const loadPortfolio = () => {
+            const portfolioTable = document.getElementById("portfolio");
+            portfolioTable.innerHTML = "";
+
+            const portfolio = JSON.parse(localStorage.getItem("portfolio")) || {};
+            for (const [symbol, quantity] of Object.entries(portfolio)) {
+                if (quantity > 0) {
+                    const row = portfolioTable.insertRow();
+                    row.innerHTML = `
+                        <td>${symbol}</td>
+                        <td>${quantity}</td>
+                    `;
+                }
+            }
+        };
+
+        window.onload = () => {
+            loadPortfolio();
+        };
+    </script>
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                margin: 0;
+                                padding: 0;
+                                background-color: #f4f4f4;
+                            }
+                            .navbar {
+                                background-color: #1e88e5;
+                                padding: 15px;
+                                text-align: center;
+                                color: white;
+                                font-size: 24px;
+                                font-weight: bold;
+                            }
+                            .container {
+                                display: flex;
+                            }
+                            .sidebar {
+                                width: 200px;
+                                background: #ffffff;
+                                padding: 20px;
+                                box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
+                            }
+                            .sidebar a {
+                                display: block;
+                                padding: 10px;
+                                text-decoration: none;
+                                color: black;
+                                margin-bottom: 10px;
+                                border-radius: 5px;
+                            }
+                            .sidebar a.active, .sidebar a:hover {
+                                background: #1e88e5;
+                                color: white;
+                            }
+                            .main-content {
+                                flex: 1;
+                                padding: 20px;
+                            }
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                background: white;
+                                box-shadow: 0px 0px 10px gray;
+                            }
+                            th, td {
+                                border: 1px solid #ddd;
+                                padding: 10px;
+                                text-align: center;
+                            }
+                            th {
+                                background-color: #1e88e5;
+                                color: white;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="navbar">Portfolio</div>
+                        <div class="container">
+                            <div class="sidebar">
+                                <h2>Menu</h2>
+                                <a href="index.html">Dashboard</a>
+                                <a href="order.html">Order</a>
+                                <a href="market.html">Market</a>
+                                <a href="settings.html">Settings</a>
+                                <a href="stock_prediction.html">Stock Prediction</a>
+                                <a href="Frontend.html">Home</a>
+                            </div>
+                            <div class="main-content">
+                                <h2>Your Portfolio</h2>
+                                <table>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Quantity</th>
+                                        <th>Average Price</th>
+                                        <th>Current Price</th>
+                                        <th>Profit/Loss</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Apple (AAPL)</td>
+                                        <td>10</td>
+                                        <td>$150</td>
+                                        <td>$170</td>
+                                        <td style="color: green;">+13.33%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tesla (TSLA)</td>
+                                        <td>5</td>
+                                        <td>$800</td>
+                                        <td>$900</td>
+                                        <td style="color: green;">+12.5%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NVIDIA (NVDA)</td>
+                                        <td>8</td>
+                                        <td>$400</td>
+                                        <td>$480</td>
+                                        <td style="color: green;">+20%</td>
+                    <tr>
+                        <td>Netflix (NFLX)</td>
+                        <td>12</td>
+                        <td>$380</td>
+                        <td>$400</td>
+                        <td style="color: green;">+5.26%</td>
+                    </tr>
+                    <tr>
+                        <td>JP Morgan (JPM)</td>
+                        <td>15</td>
+                        <td>$140</td>
+                        <td>$145</td>
+                        <td style="color: green;">+3.57%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

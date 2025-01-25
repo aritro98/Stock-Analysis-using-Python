@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #1e88e5;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sidebar a.active, .sidebar a:hover {
+            background: #1565c0;
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .prediction-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px gray;
+            border-radius: 10px;
+        }
+
+        .prediction-form input, .prediction-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .prediction-form button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .prediction-form button:hover {
+            background-color: #1565c0;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error {
+            color: red;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+
+            .container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="index.html">Dashboard</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="order.html">Orders</a>
+        <a href="market.html">Market</a>
+        <a href="settings.html">Settings</a>
+        <a href="Frontend.html">Home</a>
+    </div>
+
+    <div class="container">
+        <h1>Stock Prediction</h1>
+        <div class="prediction-form">
+            <input id="tickerInput" type="text" placeholder="Enter Stock Symbol (e.g., AAPL)">
+            <button onclick="fetchPrediction()">Get Prediction</button>
+        </div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        async function fetchPrediction() {
+            const ticker = document.getElementById("tickerInput").value;
+            if (!ticker) {
+                document.getElementById("result").innerHTML = '<p class="error">Please enter a stock symbol.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/predict?ticker=${ticker}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                document.getElementById("result").innerHTML = `
+                    <p>Future Price: $${data.future_price}</p>
+                    <p>Recommendation: ${data.recommendation}</p>
+                `;
+            } catch (error) {
+                document.getElementById("result").innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
