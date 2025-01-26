@@ -86,3 +86,10 @@ This project focuses on analyzing and predicting stock prices using technical in
 - Implements cross-origin resource sharing (CORS) to enable smooth communication between backend and frontend.
 - Designed with modularity, allowing easy updates and addition of new features or technical indicators.
 - Offers robust error handling to manage data inconsistencies and API limitations effectively.
+
+## Results
+The project achieves the following outcomes:
+- Accurate predictions of stock trends using SMA and RSI indicators.
+- Enhanced user experience through an intuitive and interactive frontend.
+- Seamless backend operations for data processing, real-time updates, and model predictions.
+- Visualizations that provide clear insights into stock performance and market trends.
