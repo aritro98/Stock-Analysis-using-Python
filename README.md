@@ -26,7 +26,6 @@ This project focuses on analyzing and predicting stock prices using technical in
   - Relative Strength Index (RSI): Identifies overbought or oversold conditions.
 
 ## Installation
-
 ### Prerequisites
 - Python 3.7 or higher
 - Jupyter Notebook
@@ -46,11 +45,21 @@ This project focuses on analyzing and predicting stock prices using technical in
    ```
 
 ## Usage
-1. Open the Jupyter Notebook:
+### Backend
+1. Run the backend application:
    ```bash
-   jupyter notebook Stock_Prediction.ipynb
+   python backend/app.py
    ```
-2. Run the notebook cells step-by-step to fetch data, calculate technical indicators, and visualize results.
+2. Use the Jupyter Notebooks for training and prediction:
+   - Open `Model_Training.ipynb` to train models.
+   - Open `Stock_Prediction.ipynb` to generate predictions.
+
+### Frontend
+1. Open `Frontend.html` in a web browser.
+2. Navigate through different pages to explore features like:
+   - Market trends
+   - Portfolio management
+   - Stock predictions
 
 ## Technical Indicators
 - Simple Moving Average (SMA): Smooths price data to identify trends.
