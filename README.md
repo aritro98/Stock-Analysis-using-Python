@@ -79,10 +79,10 @@ This project focuses on analyzing and predicting stock prices using technical in
    - Portfolio management
    - Stock predictions
 
-## Technical Indicators
-- Simple Moving Average (SMA): Smooths price data to identify trends.
-- Relative Strength Index (RSI): Identifies overbought or oversold conditions.
-
 ## Additional Details
 - Historical data is fetched for a 5-year period, covering multiple market conditions.
 - The database includes company information and technical indicators to aid in comprehensive analysis.
+- Includes functionality for real-time data fetching to provide up-to-date predictions.
+- Implements cross-origin resource sharing (CORS) to enable smooth communication between backend and frontend.
+- Designed with modularity, allowing easy updates and addition of new features or technical indicators.
+- Offers robust error handling to manage data inconsistencies and API limitations effectively.
