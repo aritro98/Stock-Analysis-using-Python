@@ -25,6 +25,23 @@ This project focuses on analyzing and predicting stock prices using technical in
   - Simple Moving Average (SMA): Smooths price data to identify trends.
   - Relative Strength Index (RSI): Identifies overbought or oversold conditions.
 
+## Technologies Used
+### Backend
+- **Python Libraries:**
+  - `pandas`: Data manipulation
+  - `numpy`: Numerical computations
+  - `matplotlib`: Data visualization
+  - `scikit-learn`: Model training and evaluation
+  - `yfinance`: Fetching stock data
+  - `Flask`: Backend framework for handling requests
+  - `Flask-CORS`: Enabling Cross-Origin Resource Sharing
+
+### Frontend
+- **Languages and Frameworks:**
+  - HTML: Structure of web pages
+  - CSS: Styling the user interface
+  - JavaScript: Enhancing interactivity
+
 ## Installation
 ### Prerequisites
 - Python 3.7 or higher
