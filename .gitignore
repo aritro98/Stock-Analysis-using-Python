@@ -6,10 +6,6 @@ __pycache__/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Data files
-/data/*.csv
-!/data/README.md
-
 # Logs and temporary files
 *.log
 tmp/
