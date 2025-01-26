@@ -2,3 +2,8 @@ yfinance
 pandas-ta
 pandas
 matplotlib
+scikit-learn
+numpy
+scipy
+flask
+flask-cors
