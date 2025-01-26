@@ -1,7 +1,7 @@
 # Stock Prediction
 
 ## Overview
-This project focuses on analyzing and predicting stock prices using technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), and other metrics. The project utilizes the `pandas-ta` library for technical analysis and `yfinance` to fetch historical stock data for 10 companies over a 5-year period. The final dataset is prepared and stored in a CSV file for further analysis and visualization.
+This project focuses on analyzing and predicting stock prices using technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), and other metrics. It also includes a user-friendly frontend for visualization and interaction. Historical stock data is fetched for 10 companies over a 5-year period and analyzed to identify trends and make predictions.
 
 ## Features
 - Fetch historical stock data for 10 companies using the `yfinance` library.
