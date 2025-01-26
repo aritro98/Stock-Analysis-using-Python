@@ -4,12 +4,26 @@
 This project focuses on analyzing and predicting stock prices using technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), and other metrics. It also includes a user-friendly frontend for visualization and interaction. Historical stock data is fetched for 10 companies over a 5-year period and analyzed to identify trends and make predictions.
 
 ## Features
-- Fetch historical stock data for 10 companies using the `yfinance` library.
-- Perform technical analysis with indicators like SMA, RSI etc using `pandas-ta`.
-- Visualize stock prices and technical indicators using `matplotlib`.
-- Combine data into a single dataset and save it as a CSV file for future analysis.
-- Analyze stock trends to aid in investment decisions.
+### Backend
+- **Data Acquisition:** Fetches historical stock data for analysis.
+- **Model Training:** Includes a Jupyter Notebook (`Model_Training.ipynb`) for training predictive models.
+- **Prediction:** Uses `Stock_Prediction.ipynb` for generating stock predictions based on trained models.
 
+### Frontend
+- **Interactive User Interface:**
+  - `Frontend.html`: Main entry point for the web interface.
+  - `index.html`: Landing page.
+  - `market.html`: Displays market trends and stock details.
+  - `order.html`: Facilitates stock purchase simulations.
+  - `portfolio.html`: Displays user's portfolio details.
+  - `settings.html`: Allows configuration of application settings.
+  - `Stock_Prediction.html`: Shows prediction outputs in a user-friendly format.
+
+### Data
+- **Dataset:** Historical stock data is stored in `data/stock_data_5_years.csv`, which contains stock information over five years.
+- **Technical Indicators:**
+  - Simple Moving Average (SMA): Smooths price data to identify trends.
+  - Relative Strength Index (RSI): Identifies overbought or oversold conditions.
 
 ## Installation
 
