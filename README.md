@@ -33,8 +33,9 @@ This project focuses on analyzing and predicting stock prices using technical in
   - `matplotlib`: Data visualization
   - `scikit-learn`: Model training and evaluation
   - `yfinance`: Fetching stock data
-  - `Flask`: Backend framework for handling requests
-  - `Flask-CORS`: Enabling Cross-Origin Resource Sharing
+  - `pandas-ta`: Technical analysis
+  - `flask`: Backend framework for handling requests
+  - `flask-CORS`: Enabling Cross-Origin Resource Sharing
 
 ### Frontend
 - **Languages and Frameworks:**
