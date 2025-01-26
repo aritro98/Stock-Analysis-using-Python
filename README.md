@@ -79,6 +79,13 @@ This project focuses on analyzing and predicting stock prices using technical in
    - Portfolio management
    - Stock predictions
 
+## Results
+The project achieves the following outcomes:
+- Accurate predictions of stock trends using SMA and RSI indicators.
+- Enhanced user experience through an intuitive and interactive frontend.
+- Seamless backend operations for data processing, real-time updates, and model predictions.
+- Visualizations that provide clear insights into stock performance and market trends.
+
 ## Additional Details
 - Historical data is fetched for a 5-year period, covering multiple market conditions.
 - The database includes company information and technical indicators to aid in comprehensive analysis.
@@ -86,10 +93,3 @@ This project focuses on analyzing and predicting stock prices using technical in
 - Implements cross-origin resource sharing (CORS) to enable smooth communication between backend and frontend.
 - Designed with modularity, allowing easy updates and addition of new features or technical indicators.
 - Offers robust error handling to manage data inconsistencies and API limitations effectively.
-
-## Results
-The project achieves the following outcomes:
-- Accurate predictions of stock trends using SMA and RSI indicators.
-- Enhanced user experience through an intuitive and interactive frontend.
-- Seamless backend operations for data processing, real-time updates, and model predictions.
-- Visualizations that provide clear insights into stock performance and market trends.
